@@ -2,7 +2,9 @@ const mongoose = require('mongoose');
 require('dotenv/config');
 
 const connection = async () => {
-  return await mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
+
+  const dbUrl = `mongodb+srv://fampay-user:${process.env.DB_PASSWORD}@cluster0.x4pss.mongodb.net/fampay?retryWrites=true&w=majority`
+  return await mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
     console.log('connected to DB');
   });
 }

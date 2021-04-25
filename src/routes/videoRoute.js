@@ -18,8 +18,8 @@ router.get('/', async (req, res) => {
       if (!page)
         page = 1;
 
-      const limit = parseInt(process.env.SIZE, 10);
-      const skip = (page - 1) * process.env.SIZE;
+      const limit = parseInt(process.env.RESULT_SIZE, 10);
+      const skip = (page - 1) * process.env.RESULT_SIZE;
 
       const videos = await Video.find().sort('-publishTime').limit(limit).skip(skip);
 
